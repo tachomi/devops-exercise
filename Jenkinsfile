@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'Hello from busybox image'
+        sh 'echo Hello from busybox image'
       }
     }
   }

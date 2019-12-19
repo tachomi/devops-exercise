@@ -1,12 +1,10 @@
 pipeline {
-  agent {
-    docker { image 'busybox'}
-  }
-  stages {
-    stage('Test') {
-      steps {
-        sh 'echo Hello from busybox image'
-      }
-    }
+  node {
+    /* Checking source code repo */
+    checkout scm
+    
+    /* defining variable */
+    def appImage = docker.build("tachomi/app:${env.BUILD_ID}")
+    appImage.push()
   }
 }

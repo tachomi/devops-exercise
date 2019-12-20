@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: devops_exercise # Name of the deployment
+spec:
+  replicas: 2 # Amunt of pods containg these services
+  template:  # objects to be replicated {
+    metadata:
+      labels:      
+      app: python
+    spec:
+      containers:
+        - name: devops_exercise
+          image: tachomi/devops_exercise
+          ports:
+            - containerPort: 5000  # }
